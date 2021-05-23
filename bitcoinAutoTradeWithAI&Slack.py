@@ -5,8 +5,8 @@ import schedule
 import requests
 from fbprophet import Prophet
 
-access = "key95gSHcp3TwA68Kd9d0N1rc4fx4xWWhxlDiZxUUWo"
-secret = "keyFPpt48q6Ay9GyqMOHJWALxlzf6So3HYDiTg3rO4r"
+access = "95gSHcp3TwA68Kd9d0N1rc4fx4xWWhxlDiZxUUWo"
+secret = "FPpt48q6Ay9GyqMOHJWALxlzf6So3HYDiTg3rO4r"
 myToken = "xoxb-2028615424164-2022457556690-sFeFwW5wmSnlO0hOKCrAM9aQ"
 
 def post_message(token, channel, text):

@@ -5,9 +5,9 @@ import schedule
 from fbprophet import Prophet
 import requests
 
-access = "95gSHcp3TwA68Kd9d0N1rc4fx4xWWhxlDiZxUUWo"
-secret = "FPpt48q6Ay9GyqMOHJWALxlzf6So3HYDiTg3rO4r"
-myToken = "xoxb-2028615424164-2022457556690-kYOvHCP0vmJsoc7UlHKKzhzj"
+access = "TxNnyjpzOxGpOUX5V7khlsIKGL2p5mlJcWKe7TQK"
+secret = "VgIafGmtxo2JtXyqIzkFNKkxb807B7Y0miBE7zKY"
+myToken = "xoxb-2092150365030-2084161292615-pNUbeUxjYr1bJ07LsjY2bZKK"
 
 def post_message(token, channel, text):
     """슬랙 메시지 전송"""
@@ -68,7 +68,7 @@ schedule.every().hour.do(lambda: predict_price("KRW-BTC"))
 upbit = pyupbit.Upbit(access, secret)
 print("autotrade start")
 # 시작 메세지 슬랙 전송
-post_message(myToken,"#crypto", "autotrade start")
+post_message(myToken,"#studing", "autotrade start")
 
 # 자동매매 시작
 while True:
@@ -85,15 +85,15 @@ while True:
                 krw = get_balance("KRW")
                 if krw > 5000:
                     upbit.buy_market_order("KRW-BTC", krw*0.9995)
-                    post_message(myToken,"#crypto", "BTC buy : " +str(buy_result))
+                    post_message(myToken,"#studing", "BTC buy : " +str(buy_result))
 
         else:
             btc = get_balance("BTC")
             if btc > 0.00008:
                 upbit.sell_market_order("KRW-BTC", btc*0.9995)
-                post_message(myToken,"#crypto", "BTC buy : " +str(sell_result))
+                post_message(myToken,"#studing", "BTC buy : " +str(sell_result))
         time.sleep(1)
     except Exception as e:
         print(e)
-        post_message(myToken,"#crypto", e)
+        post_message(myToken,"#studing", e)
         time.sleep(1)
